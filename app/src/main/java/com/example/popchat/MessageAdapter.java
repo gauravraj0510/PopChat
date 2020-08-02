@@ -91,6 +91,17 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
 
             }
         }
+        else if(fromMessageType.equals("image")){
+            if(fromUserId.equals(messageSenderId)){
+                holder.messageSenderPicture.setVisibility(View.VISIBLE);
+                Picasso.get().load(messages.getMessage()).into(holder.messageSenderPicture);
+            }
+            else{
+                holder.messageReceiverPicture.setVisibility(View.VISIBLE);
+                holder.receiverProfileImage.setVisibility(View.VISIBLE);
+                Picasso.get().load(messages.getMessage()).into(holder.messageReceiverPicture);
+            }
+        }
 
     }
 
