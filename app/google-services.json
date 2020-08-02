@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "915035011039",
+    "firebase_url": "https://popchat-229ab.firebaseio.com",
+    "project_id": "popchat-229ab",
+    "storage_bucket": "popchat-229ab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:915035011039:android:80cf32537c8c246351b66a",
+        "android_client_info": {
+          "package_name": "com.example.popchat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "915035011039-55hq4kohb1si8fbnhu9a5fnd6fqep1s9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWvFalwDISRSLUJR8KDLczd1A6lrtmJJg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "915035011039-55hq4kohb1si8fbnhu9a5fnd6fqep1s9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
