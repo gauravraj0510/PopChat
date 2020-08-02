@@ -33,11 +33,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
+        <ImageButton
+            android:id="@+id/send_files_button"
+            style="@style/Widget.AppCompat.ImageButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/send_files" />
+
         <EditText
             android:id="@+id/input_private_message"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.15"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3"
             android:hint="Type a message..."
             android:padding="16dp" />
 

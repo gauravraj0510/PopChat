@@ -30,7 +30,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -47,11 +49,13 @@ public class ChatActivity extends AppCompatActivity {
     private RecyclerView userMessagesRecyclerView;
 
     private Toolbar chatToolbar;
-    private ImageButton sendMessageButton;
+    private ImageButton sendMessageButton, sendFilesButton;
     private EditText messageInputText;
 
     private FirebaseAuth mAuth;
     private DatabaseReference rootRef;
+    private String saveCurrentTime, saveCurrentDate;
+
 
     private final List<Messages> messagesList = new ArrayList<>();
     private LinearLayoutManager linearLayoutManager;
@@ -107,6 +111,7 @@ public class ChatActivity extends AppCompatActivity {
         userLastSeen = findViewById(R.id.custom_user_last_seen);
 
         sendMessageButton = findViewById(R.id.send_message_private_button);
+        sendFilesButton = findViewById(R.id.send_files_button);
         messageInputText = findViewById(R.id.input_private_message);
 
         messageAdapter = new MessageAdapter(messagesList);
@@ -116,10 +121,12 @@ public class ChatActivity extends AppCompatActivity {
 
         displayLastSeen();
 
+
+
     }
 
     private void displayLastSeen(){
-        rootRef.child("Users").child(messageSenderId).addValueEventListener(new ValueEventListener() {
+        rootRef.child("Users").child(messageReceiverId).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
@@ -200,11 +207,23 @@ public class ChatActivity extends AppCompatActivity {
                     .child(messageSenderId).child(messageReceiverId).push();
 
             String messagePushId = userMessageKeyRef.getKey();
+            Calendar calendar = Calendar.getInstance();
+
+            SimpleDateFormat currentDate = new SimpleDateFormat("MMM dd, yyyy");
+            saveCurrentDate = currentDate.format(calendar.getTime());
+
+            SimpleDateFormat currentTime = new SimpleDateFormat("hh:mm a");
+            saveCurrentTime = currentTime.format(calendar.getTime());
 
             Map messageTextBody = new HashMap();
             messageTextBody.put("message",message);
             messageTextBody.put("type","text");
             messageTextBody.put("from",messageSenderId);
+            messageTextBody.put("to",messageReceiverId);
+            messageTextBody.put("messageId",messagePushId);
+            messageTextBody.put("time",saveCurrentTime);
+            messageTextBody.put("date",saveCurrentDate);
+
 
             Map messageBodyDetails = new HashMap();
             messageBodyDetails.put(messageSenderRef+"/"+messagePushId, messageTextBody);
