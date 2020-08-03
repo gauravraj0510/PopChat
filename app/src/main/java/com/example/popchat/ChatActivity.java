@@ -96,6 +96,39 @@ public class ChatActivity extends AppCompatActivity {
 
         initializeControllers();
 
+        rootRef.child("Messages").child(messageSenderId).child(messageReceiverId)
+                .addChildEventListener(new ChildEventListener() {
+                    @Override
+                    public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                        Messages messages = snapshot.getValue(Messages.class);
+                        messagesList.add(messages);
+                        messageAdapter.notifyDataSetChanged();
+
+                        userMessagesRecyclerView.smoothScrollToPosition(userMessagesRecyclerView.getAdapter().getItemCount());
+                    }
+
+                    @Override
+                    public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                    }
+
+                    @Override
+                    public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+                    }
+
+                    @Override
+                    public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
         userName.setText(messageReceiverName);
         Picasso.get().load(messageReceiverImage).placeholder(R.drawable.profile_image).into(userImage);
 
@@ -147,8 +180,7 @@ public class ChatActivity extends AppCompatActivity {
                 CharSequence options[] = new CharSequence[]
                         {
                              "Image",
-                             "PDF File",
-                             "Word File"
+                             "Document"
                         };
                 AlertDialog.Builder builder = new AlertDialog.Builder(ChatActivity.this);
 
@@ -168,16 +200,10 @@ public class ChatActivity extends AppCompatActivity {
                             checker = "pdf";
                             Intent intent = new Intent();
                             intent.setAction(Intent.ACTION_GET_CONTENT);
-                            intent.setType("application/pdf*");
+                            intent.setType("application/msword*");
                             startActivityForResult(intent.createChooser(intent, "Select PDF file"),438);
                         }
-                        if(which == 2){
-                            checker = "docx";
-                            Intent intent = new Intent();
-                            intent.setAction(Intent.ACTION_GET_CONTENT);
-                            intent.setType("application/msword*");
-                            startActivityForResult(intent.createChooser(intent, "Select MS WORD file"),438);
-                        }
+
 
                     }
                 });
@@ -360,38 +386,7 @@ public class ChatActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        rootRef.child("Messages").child(messageSenderId).child(messageReceiverId)
-                .addChildEventListener(new ChildEventListener() {
-                    @Override
-                    public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
-                        Messages messages = snapshot.getValue(Messages.class);
-                        messagesList.add(messages);
-                        messageAdapter.notifyDataSetChanged();
-
-                        userMessagesRecyclerView.smoothScrollToPosition(userMessagesRecyclerView.getAdapter().getItemCount());
-                    }
-
-                    @Override
-                    public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-                    }
-
-                    @Override
-                    public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-                    }
-
-                    @Override
-                    public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
     }
 
     private void sendMessage(){
