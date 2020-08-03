@@ -97,11 +97,27 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
             if(fromUserId.equals(messageSenderId)){
                 holder.messageSenderPicture.setVisibility(View.VISIBLE);
                 Picasso.get().load(messages.getMessage()).into(holder.messageSenderPicture);
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(userMessageList.get(position).getMessage()));
+                        holder.itemView.getContext().startActivity(intent);
+
+                    }
+                });
             }
             else{
                 holder.messageReceiverPicture.setVisibility(View.VISIBLE);
                 holder.receiverProfileImage.setVisibility(View.VISIBLE);
                 Picasso.get().load(messages.getMessage()).into(holder.messageReceiverPicture);
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(userMessageList.get(position).getMessage()));
+                        holder.itemView.getContext().startActivity(intent);
+
+                    }
+                });
             }
         }
 
