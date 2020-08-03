@@ -142,13 +142,13 @@ public class ChatActivity extends AppCompatActivity {
             public void onClick(View v) {
                 CharSequence options[] = new CharSequence[]
                         {
-                             "Images",
-                             "PDF Files",
-                             "Word Files"
+                             "Image",
+                             "PDF File",
+                             "Word File"
                         };
                 AlertDialog.Builder builder = new AlertDialog.Builder(ChatActivity.this);
 
-                builder.setTitle("Select a file:-");
+                builder.setTitle("Select file type:-");
 
                 builder.setItems(options, new DialogInterface.OnClickListener() {
                     @Override
