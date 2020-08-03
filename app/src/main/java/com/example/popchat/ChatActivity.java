@@ -96,6 +96,13 @@ public class ChatActivity extends AppCompatActivity {
 
         initializeControllers();
 
+        getMessages();
+
+
+    }
+
+    private void getMessages() {
+
         rootRef.child("Messages").child(messageSenderId).child(messageReceiverId)
                 .addChildEventListener(new ChildEventListener() {
                     @Override
@@ -180,7 +187,8 @@ public class ChatActivity extends AppCompatActivity {
                 CharSequence options[] = new CharSequence[]
                         {
                              "Image",
-                             "Document"
+                             "PDF File",
+                                "Word File"
                         };
                 AlertDialog.Builder builder = new AlertDialog.Builder(ChatActivity.this);
 
@@ -202,6 +210,13 @@ public class ChatActivity extends AppCompatActivity {
                             intent.setAction(Intent.ACTION_GET_CONTENT);
                             intent.setType("application/msword*");
                             startActivityForResult(intent.createChooser(intent, "Select PDF file"),438);
+                        }
+                        if(which == 2){
+                            checker = "docx";
+                            Intent intent = new Intent();
+                            intent.setAction(Intent.ACTION_GET_CONTENT);
+                            intent.setType("application/msword*");
+                            startActivityForResult(intent.createChooser(intent, "Select WORD file"),438);
                         }
 
 
