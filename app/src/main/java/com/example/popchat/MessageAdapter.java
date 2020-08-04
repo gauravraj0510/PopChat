@@ -195,6 +195,42 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
                 }
             });
         }
+
+        else{
+            holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    if(userMessageList.get(position).getType().equals("pdf")
+                            || userMessageList.get(position).getType().equals("docx")
+                            || userMessageList.get(position).getType().equals("image")
+                            || userMessageList.get(position).getType().equals("text")){
+
+                        CharSequence options[] = new CharSequence[]
+                                {
+                                        "Delete for me",
+                                        "Cancel"
+                                };
+
+                        AlertDialog.Builder builder = new AlertDialog.Builder(holder.itemView.getContext());
+                        builder.setTitle("Delete Message?");
+                        builder.setItems(options, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                                if(position==0){
+
+                                }
+                            }
+                        });
+
+                        builder.show();
+
+                    }
+                    return true;
+                }
+            });
+
+        }
     }
 
 
