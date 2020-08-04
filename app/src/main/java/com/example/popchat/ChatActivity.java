@@ -262,6 +262,14 @@ public class ChatActivity extends AppCompatActivity {
                             public void onSuccess(Uri uri) {
                                 String downloadUrl = uri.toString();
 
+                                Calendar calendar = Calendar.getInstance();
+
+                                SimpleDateFormat currentDate = new SimpleDateFormat("MMM dd, yyyy");
+                                saveCurrentDate = currentDate.format(calendar.getTime());
+
+                                SimpleDateFormat currentTime = new SimpleDateFormat("hh:mm a");
+                                saveCurrentTime = currentTime.format(calendar.getTime());
+
                                 Map messageImageBody = new HashMap();
                                 messageImageBody.put("message",downloadUrl);
                                 messageImageBody.put("name",fileUri.getLastPathSegment());
@@ -327,6 +335,14 @@ public class ChatActivity extends AppCompatActivity {
                         if(task.isSuccessful()){
                             Uri downloadUri = task.getResult();
                             myUrl = downloadUri.toString();
+
+                            Calendar calendar = Calendar.getInstance();
+
+                            SimpleDateFormat currentDate = new SimpleDateFormat("MMM dd, yyyy");
+                            saveCurrentDate = currentDate.format(calendar.getTime());
+
+                            SimpleDateFormat currentTime = new SimpleDateFormat("hh:mm a");
+                            saveCurrentTime = currentTime.format(calendar.getTime());
 
                             Map messageTextBody = new HashMap();
                             messageTextBody.put("message",myUrl);

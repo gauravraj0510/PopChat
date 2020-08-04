@@ -78,6 +78,8 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
         holder.messageReceiverPicture.setVisibility(View.GONE);
         holder.messageSenderPicture.setVisibility(View.GONE);
         holder.senderMessageText.setVisibility(View.GONE);
+        holder.imageSenderDateTime.setVisibility(View.GONE);
+        holder.imageReceiverDateTime.setVisibility(View.GONE);
 
         if(fromMessageType.equals("text")){
 
@@ -102,6 +104,8 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
             if(fromUserId.equals(messageSenderId)){
                 holder.messageSenderPicture.setVisibility(View.VISIBLE);
                 Picasso.get().load(messages.getMessage()).into(holder.messageSenderPicture);
+                holder.imageSenderDateTime.setVisibility(View.VISIBLE);
+                holder.imageSenderDateTime.setText(messages.getTime()+" - "+messages.getDate());
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -114,6 +118,8 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
             else{
                 holder.messageReceiverPicture.setVisibility(View.VISIBLE);
                 holder.receiverProfileImage.setVisibility(View.VISIBLE);
+                holder.imageReceiverDateTime.setVisibility(View.VISIBLE);
+                holder.imageReceiverDateTime.setText(messages.getTime()+" - "+messages.getDate());
                 Picasso.get().load(messages.getMessage()).into(holder.messageReceiverPicture);
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -130,6 +136,9 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
 
             if(fromUserId.equals(messageSenderId)){
 
+                holder.imageSenderDateTime.setVisibility(View.VISIBLE);
+                holder.imageSenderDateTime.setText(messages.getTime()+" - "+messages.getDate());
+
                 holder.messageSenderPicture.setVisibility(View.VISIBLE);
                 holder.messageSenderPicture.setBackgroundResource(R.drawable.file);
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -143,6 +152,9 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
 
             }
             else{
+
+                holder.imageReceiverDateTime.setVisibility(View.VISIBLE);
+                holder.imageReceiverDateTime.setText(messages.getTime()+" - "+messages.getDate());
 
                 holder.receiverProfileImage.setVisibility(View.VISIBLE);
                 holder.messageReceiverPicture.setVisibility(View.VISIBLE);
@@ -171,7 +183,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
 
     public class MessageViewHolder extends RecyclerView.ViewHolder{
 
-        public TextView senderMessageText, receiverMessageText, senderDateTime, receiverDateTime;
+        public TextView senderMessageText, receiverMessageText, senderDateTime, receiverDateTime, imageSenderDateTime, imageReceiverDateTime;
         public CircleImageView receiverProfileImage;
         public ImageView messageSenderPicture, messageReceiverPicture;
 
@@ -185,6 +197,8 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
             messageSenderPicture = itemView.findViewById(R.id.message_sender_image_view);
             senderDateTime = itemView.findViewById(R.id.sender_date_time);
             receiverDateTime = itemView.findViewById(R.id.receiver_date_time);
+            imageReceiverDateTime = itemView.findViewById(R.id.files_receiver_date_time);
+            imageSenderDateTime = itemView.findViewById(R.id.files_sender_date_time);
         }
     }
 
