@@ -1,5 +1,7 @@
 package com.example.popchat;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
@@ -155,7 +157,47 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
 
         }
 
+        if(fromUserId.equals(messageSenderId)){
+            holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    if(userMessageList.get(position).getType().equals("pdf")
+                    || userMessageList.get(position).getType().equals("docx")
+                    || userMessageList.get(position).getType().equals("image")
+                    || userMessageList.get(position).getType().equals("text")){
+
+                        CharSequence options[] = new CharSequence[]
+                                {
+                                        "Delete for me",
+                                        "Delete for everyone",
+                                        "Cancel"
+                                };
+
+                        AlertDialog.Builder builder = new AlertDialog.Builder(holder.itemView.getContext());
+                        builder.setTitle("Delete Message?");
+                        builder.setItems(options, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                                if(position==0){
+
+                                }
+                                else if(position==1){
+
+                                }
+                            }
+                        });
+
+                        builder.show();
+
+                    }
+                    return true;
+                }
+            });
+        }
     }
+
+
 
     @Override
     public int getItemCount() {
