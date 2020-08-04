@@ -18,13 +18,13 @@ public class TabsAccessorAdapter extends FragmentPagerAdapter {
             case 0:
                 ChatsFragment chatsFragment = new ChatsFragment();
                 return chatsFragment;
+//            case 1:
+//                GroupsFragment groupsFragment = new GroupsFragment();
+//                return groupsFragment;
             case 1:
-                GroupsFragment groupsFragment = new GroupsFragment();
-                return groupsFragment;
-            case 2:
                 ContactsFragment contactsFragment = new ContactsFragment();
                 return contactsFragment;
-            case 3:
+            case 2:
                 RequestsFragment requestsFragment = new RequestsFragment();
                 return requestsFragment;
             default:
@@ -35,7 +35,7 @@ public class TabsAccessorAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 4;
+        return 3;
     }
 
     @Nullable
@@ -45,13 +45,13 @@ public class TabsAccessorAdapter extends FragmentPagerAdapter {
             case 0:
                 return "Chats";
 
-            case 1:
-                return "Groups";
+//            case 1:
+//                return "Groups";
 
-            case 2:
+            case 1:
                 return "Contacts";
 
-            case 3:
+            case 2:
                 return "Requests";
 
             default:

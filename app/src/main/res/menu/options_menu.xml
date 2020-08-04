@@ -9,12 +9,12 @@
 
     </item>
 
-    <item android:title="Create Groups"
-        android:id="@+id/main_create_groups"
-        app:showAsAction="never"
-        >
+<!--    <item android:title="Create Groups"-->
+<!--        android:id="@+id/main_create_groups"-->
+<!--        app:showAsAction="never"-->
+<!--        >-->
 
-    </item>
+<!--    </item>-->
 
     <item android:title="Settings"
     android:id="@+id/main_settings_option"
