@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_doodle"
+
     tools:context=".SettingsActivity">
 
     <include
@@ -15,6 +17,7 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/set_profile_image"
+        android:background="@drawable/background_doodle"
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:layout_marginTop="30dp"

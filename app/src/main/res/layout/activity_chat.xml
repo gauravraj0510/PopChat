@@ -16,6 +16,7 @@
         android:id="@+id/private_messages_list_recycler_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="@drawable/background_doodle"
         app:layout_constraintBottom_toTopOf="@+id/chat_linear_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
