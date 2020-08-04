@@ -16,11 +16,42 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/find_friends_recycler_view"
         android:layout_width="0dp"
-        android:background="@drawable/background_doodle"
         android:layout_height="0dp"
+        android:background="@drawable/background_doodle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search_users_input_field" />
+
+    <EditText
+        android:id="@+id/search_users_input_field"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/search"
+        android:hint=" Type username to search..."
+        android:paddingRight="16dp"
+        android:backgroundTint="@color/colorAccent"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginStart="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/find_users_button"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/find_friends_toolbar" />
+
+    <Button
+        android:id="@+id/find_users_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/buttons"
+        android:text="Find"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold"
+        android:layout_marginBottom="3dp"
+        android:layout_marginTop="3dp"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/find_friends_recycler_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/find_friends_toolbar"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
