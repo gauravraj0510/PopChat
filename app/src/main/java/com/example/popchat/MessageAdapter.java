@@ -80,6 +80,9 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
         holder.senderMessageText.setVisibility(View.GONE);
         holder.imageSenderDateTime.setVisibility(View.GONE);
         holder.imageReceiverDateTime.setVisibility(View.GONE);
+        holder.senderFileName.setVisibility(View.INVISIBLE);
+        holder.receiverFileName.setVisibility(View.INVISIBLE);
+
 
         if(fromMessageType.equals("text")){
 
@@ -139,6 +142,9 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
                 holder.imageSenderDateTime.setVisibility(View.VISIBLE);
                 holder.imageSenderDateTime.setText(messages.getTime()+" - "+messages.getDate());
 
+                holder.senderFileName.setVisibility(View.VISIBLE);
+                holder.senderFileName.setText(messages.getName());
+
                 holder.messageSenderPicture.setVisibility(View.VISIBLE);
                 holder.messageSenderPicture.setBackgroundResource(R.drawable.file);
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -155,6 +161,9 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
 
                 holder.imageReceiverDateTime.setVisibility(View.VISIBLE);
                 holder.imageReceiverDateTime.setText(messages.getTime()+" - "+messages.getDate());
+
+                holder.receiverFileName.setVisibility(View.VISIBLE);
+                holder.receiverFileName.setText(messages.getName());
 
                 holder.receiverProfileImage.setVisibility(View.VISIBLE);
                 holder.messageReceiverPicture.setVisibility(View.VISIBLE);
@@ -184,6 +193,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
     public class MessageViewHolder extends RecyclerView.ViewHolder{
 
         public TextView senderMessageText, receiverMessageText, senderDateTime, receiverDateTime, imageSenderDateTime, imageReceiverDateTime;
+        public TextView senderFileName, receiverFileName;
         public CircleImageView receiverProfileImage;
         public ImageView messageSenderPicture, messageReceiverPicture;
 
@@ -199,6 +209,8 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
             receiverDateTime = itemView.findViewById(R.id.receiver_date_time);
             imageReceiverDateTime = itemView.findViewById(R.id.files_receiver_date_time);
             imageSenderDateTime = itemView.findViewById(R.id.files_sender_date_time);
+            senderFileName = itemView.findViewById(R.id.sender_file_name);
+            receiverFileName = itemView.findViewById(R.id.receiver_file_name);
         }
     }
 
