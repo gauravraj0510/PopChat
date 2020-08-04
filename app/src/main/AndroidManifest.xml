@@ -13,9 +13,11 @@
         android:roundIcon="@drawable/pop_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".InstructionActivity"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".ChatActivity"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".ProfileActivity"
             android:parentActivityName=".FindFriendsActivity" />

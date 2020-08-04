@@ -23,6 +23,13 @@
 
     </item>
 
+    <item android:title="Instructions"
+        android:id="@+id/main_instructions_option"
+        app:showAsAction="never"
+        >
+
+    </item>
+
     <item android:title="Logout"
     android:id="@+id/main_logout_option"
     app:showAsAction="never"

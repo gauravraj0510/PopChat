@@ -175,6 +175,10 @@ public class MainActivity extends AppCompatActivity implements FirebaseAuth.Auth
             Intent findFriendsIntent = new Intent(MainActivity.this, FindFriendsActivity.class);
             startActivity(findFriendsIntent);
         }
+        else if(item.getItemId() == R.id.main_instructions_option){
+            Intent instructionIntent = new Intent(MainActivity.this, InstructionActivity.class);
+            startActivity(instructionIntent);
+        }
 //        else if(item.getItemId() == R.id.main_create_groups){
 //            requestNewGroup();
 //        }
