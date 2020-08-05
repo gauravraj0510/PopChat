@@ -2,4 +2,6 @@
     <string name="app_name">PopChat</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="popChat_guide"><u>PopChat Guide</u></string>
+    <string name="link"><a href="https://github.com/gauravraj0510">Gaurav Raj</a></string>
 </resources>

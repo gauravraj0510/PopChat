@@ -347,7 +347,7 @@ public class ChatActivity extends AppCompatActivity {
                             Map messageTextBody = new HashMap();
                             messageTextBody.put("message",myUrl);
                             messageTextBody.put("name",fileUri.getLastPathSegment());
-                            messageTextBody.put("type",checker);
+                            messageTextBody.put("type","image");
                             messageTextBody.put("from",messageSenderId);
                             messageTextBody.put("to",messageReceiverId);
                             messageTextBody.put("messageId",messagePushId);

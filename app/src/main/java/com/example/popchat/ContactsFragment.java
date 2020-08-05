@@ -52,9 +52,13 @@ public class ContactsFragment extends Fragment {
         myContactsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         mAuth = FirebaseAuth.getInstance();
-        currentUserId = mAuth.getCurrentUser().getUid();
-
-        contactsRef = FirebaseDatabase.getInstance().getReference().child("Contacts").child(currentUserId);
+        if(mAuth.getCurrentUser() != null){
+            currentUserId = mAuth.getCurrentUser().getUid();
+            contactsRef = FirebaseDatabase.getInstance().getReference().child("Contacts").child(currentUserId);
+        }
+        else{
+            contactsRef = FirebaseDatabase.getInstance().getReference().child("Contacts");
+        }
         usersRef = FirebaseDatabase.getInstance().getReference().child("Users");
 
         return contactsView;
