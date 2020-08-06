@@ -33,6 +33,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
     private List<Messages> userMessageList;
     private FirebaseAuth mAuth;
     private DatabaseReference usersRef;
+    private String fileImageUrl = "https://firebasestorage.googleapis.com/v0/b/popchat-229ab.appspot.com/o/Image%20files%2Ffile.png?alt=media&token=860cccab-058b-48f8-a984-36a8facf3aa7";
 
     public MessageAdapter(List<Messages> userMessageList) {
         this.userMessageList = userMessageList;
@@ -146,7 +147,8 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
                 holder.senderFileName.setText(messages.getName());
 
                 holder.messageSenderPicture.setVisibility(View.VISIBLE);
-                holder.messageSenderPicture.setBackgroundResource(R.drawable.file);
+                Picasso.get().load(fileImageUrl).into(holder.messageSenderPicture);
+
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -167,7 +169,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
 
                 holder.receiverProfileImage.setVisibility(View.VISIBLE);
                 holder.messageReceiverPicture.setVisibility(View.VISIBLE);
-                holder.messageReceiverPicture.setBackgroundResource(R.drawable.file);
+                Picasso.get().load(fileImageUrl).into(holder.messageReceiverPicture);
 
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override

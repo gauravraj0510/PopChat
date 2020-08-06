@@ -235,7 +235,7 @@ public class ChatActivity extends AppCompatActivity {
         if(requestCode==438 && resultCode==RESULT_OK && data!=null && data.getData()!=null){
 
             loadingBar.setTitle("Sending file! Just a moment!");
-            loadingBar.setMessage("Please wait! Your new profile image is getting updated!");
+            loadingBar.setMessage("Please wait! Your file is being sent");
             loadingBar.setCanceledOnTouchOutside(false);
             loadingBar.show();
 
@@ -270,10 +270,17 @@ public class ChatActivity extends AppCompatActivity {
                                 SimpleDateFormat currentTime = new SimpleDateFormat("hh:mm a");
                                 saveCurrentTime = currentTime.format(calendar.getTime());
 
+                                String type;
+                                if(checker.equals("docx")){
+                                    type = "docx";
+                                }
+                                else {
+                                    type = "pdf";
+                                }
                                 Map messageImageBody = new HashMap();
                                 messageImageBody.put("message",downloadUrl);
                                 messageImageBody.put("name",fileUri.getLastPathSegment());
-                                messageImageBody.put("type",checker);
+                                messageImageBody.put("type",type);
                                 messageImageBody.put("from",messageSenderId);
                                 messageImageBody.put("to", messageReceiverId);
                                 messageImageBody.put("messageID", messagePushId);
