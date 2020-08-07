@@ -38,6 +38,8 @@ public class RequestsFragment extends Fragment {
     private FirebaseAuth mAuth;
     private String currentUserId;
 
+    private String profileImageUrl = "https://firebasestorage.googleapis.com/v0/b/popchat-229ab.appspot.com/o/Image%20files%2Fprofile_image.png?alt=media&token=846fa687-3d01-464d-b4c2-11730a35b7c8";
+
     public RequestsFragment() {
         // Required empty public constructor
     }
@@ -200,8 +202,11 @@ public class RequestsFragment extends Fragment {
                                         if(snapshot.hasChild("image")){
                                             final String requestUserImage = snapshot.child("image").getValue().toString();
 
-                                            Picasso.get().load(requestUserImage).placeholder(R.drawable.profile_image).into(holder.profileImage);
+                                            Picasso.get().load(requestUserImage).into(holder.profileImage);
 
+                                        }
+                                        else{
+                                            Picasso.get().load(profileImageUrl).into(holder.profileImage);
                                         }
 
                                         final String requestUserName = snapshot.child("name").getValue().toString();

@@ -4,9 +4,11 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
@@ -25,11 +27,23 @@ public class LoginRegisterActivity extends AppCompatActivity {
     int AUTH_UI_REQ_CODE = 10001;
     private DatabaseReference rootRef;
     private FirebaseAuth mAuth;
+    private TextView githubLink;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_register);
+
+        githubLink = findViewById(R.id.tv_github_profile_link);
+        githubLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = "https://github.com/gauravraj0510";
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+            }
+        });
 
         rootRef = FirebaseDatabase.getInstance().getReference();
 
