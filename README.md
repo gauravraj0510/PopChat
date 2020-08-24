@@ -6,7 +6,7 @@
 A basic chat app with sharing of images and documents along with text. An additional feature of message request similar to that of facebook's friend request.
 
 ## Download
-<a href='https://github.com/gauravraj0510/PopChat/releases/download/PopChat-v1.0/PopChat-v1.0.apk'>
+<a href='https://github.com/gauravraj0510/PopChat/releases/download/v1.1/PopChat-v1.1.apk'>
 <img alt='Download from release' src='https://www.inspirefm.org/wp-content/uploads/button-apk.png' width=200>
 </a>
 
