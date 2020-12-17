@@ -13,6 +13,12 @@ A basic chat app with sharing of images and documents along with text. An additi
 ## Developer
 Gaurav Raj - [LinkedIn](https://www.linkedin.com/in/gaurav-raj-5893b0195/)
 
+## Class and Tier Diagrams
+ - Class Diagram 
+<img src='Examples/1.png' width='500' >
+ - Tier Diagram
+<img src='Examples/2.png' width='300' >
+
 ## Features 
  - Chat privately
  - Share images and documents along with text messages
