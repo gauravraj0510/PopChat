@@ -15,9 +15,9 @@ Gaurav Raj - [LinkedIn](https://www.linkedin.com/in/gaurav-raj-5893b0195/)
 
 ## Class and Tier Diagrams
  - Class Diagram 
-<img src='Examples/1.png' width='500' >
+<img src='Examples/Class.png' width='500' >
  - Tier Diagram
-<img src='Examples/2.png' width='300' >
+<img src='Examples/Tier.png' width='500' >
 
 ## Features 
  - Chat privately
