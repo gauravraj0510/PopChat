@@ -16,6 +16,7 @@ Gaurav Raj - [LinkedIn](https://www.linkedin.com/in/gaurav-raj-5893b0195/)
 ## Class and Tier Diagrams
  - Class Diagram 
 <img src='Examples/Class.png' width='500' >
+ 
  - Tier Diagram
 <img src='Examples/Tier.png' width='500' >
 
