@@ -4,7 +4,7 @@
 
 
 A basic chat app with sharing of images and documents along with text. An additional feature of message request similar to that of facebook's friend request.
-Youtube Demo Video: https://youtu.be/Tiz7vMhNLOY
+- Youtube Demo Video: https://youtu.be/Tiz7vMhNLOY
 
 ## Download
 <a href='https://github.com/gauravraj0510/PopChat/releases/download/v1.1/PopChat-v1.1.apk'>
