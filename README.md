@@ -28,7 +28,7 @@ Gaurav Raj - [LinkedIn](https://www.linkedin.com/in/gaurav-raj-5893b0195/)
  - Online sync and Real time updates 
  - Data is saved on cloud hence no internal memory of the phone is used  
  
-## Main features 
+## Main features of App
 - Login Screen 
 <img src='Examples/login_screen.jpg' width='200' height='400'>
 
