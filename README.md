@@ -3,7 +3,7 @@
 # PopChat
 
 
-A basic chat app with sharing of images and documents along with text. An additional feature of message request similar to that of facebook's friend request.
+A basic chat application with sharing of images and documents along with text. An additional feature of message request similar to that of facebook's friend request.
 - Youtube Demo Video: https://youtu.be/Tiz7vMhNLOY
 
 ## Download
