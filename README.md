@@ -12,7 +12,7 @@ A basic chat application with sharing of images and documents along with text. A
 </a>
 
 ## Developer
-Gaurav Raj - [LinkedIn](https://www.linkedin.com/in/gaurav-raj-5893b0195/)
+Gaurav Raj -> [LinkedIn](https://www.linkedin.com/in/gaurav-raj-5893b0195/)
 
 ## Class and Tier Diagrams
  - Class Diagram 
